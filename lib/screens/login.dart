@@ -1,3 +1,4 @@
+import 'package:DoMyBidding/screens/view_tasks.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -32,6 +33,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   try {
                     final user = await _auth.signInWithEmailAndPassword(
                         email: email, password: password);
+                    if (user != null) {
+                      Navigator.pushNamed(context, TasksScreen.id);
+                    }
                   } catch (e) {
                     print(e);
                   }

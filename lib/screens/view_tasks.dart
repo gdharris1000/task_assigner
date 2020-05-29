@@ -9,6 +9,10 @@ class TasksScreen extends StatefulWidget {
 class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Container(
+        child: Text('Welcome'),
+      ),
+    );
   }
 }
