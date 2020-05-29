@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:DoMyBidding/models/task.dart';
+import 'package:DoMyBidding/widgets/task_item.dart';
 
 final _firestore = Firestore.instance;
 
@@ -15,15 +17,25 @@ class TaskStream extends StatelessWidget {
               child: Text('Loading'),
             );
           } else {
+            List<Task> taskList = [];
             final tasks = snapshot.data.documents.reversed;
-            String taskName;
+
             for (var taskData in tasks) {
-              print(taskData.data['task']);
-              taskName = taskData.data['task'];
+              taskList.add(Task(
+                  task: taskData.data['task'],
+                  docId: taskData.documentID,
+                  assignedTo: taskData.data['assigned_to'],
+                  createdBy: taskData.data['created_by'],
+                  created: taskData.data['created'],
+                  completed: taskData.data['completed'],
+                  priority: taskData.data['priority']));
             }
-            return Center(
-              child: Text(taskName),
-            );
+            return ListView.builder(
+                itemBuilder: (context, index) {
+                  final task = taskList[index];
+                  return TaskItem(task);
+                },
+                itemCount: taskList.length);
           }
         });
   }

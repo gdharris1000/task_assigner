@@ -10,14 +10,16 @@ class TasksScreen extends StatefulWidget {
 class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: <Widget>[
-          Container(
-            child: Text('Welcome'),
-          ),
-          TaskStream(),
-        ],
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: Text('Welcome'),
+            ),
+            Expanded(child: TaskStream()),
+          ],
+        ),
       ),
     );
   }

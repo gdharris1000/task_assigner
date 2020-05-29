@@ -7,6 +7,7 @@ class Task {
   final String createdBy;
   final Timestamp created;
   final Timestamp dueDate;
+  final int priority;
   bool completed;
 
   Task(
@@ -16,5 +17,6 @@ class Task {
       this.created,
       this.createdBy,
       this.dueDate,
+      this.priority,
       this.completed = false});
 }

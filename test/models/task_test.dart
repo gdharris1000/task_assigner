@@ -8,6 +8,7 @@ void main() {
     Task task = Task(
         docId: '1',
         task: 'Eat crisps',
+        priority: 1,
         assignedTo: 'bob',
         createdBy: 'pob',
         created: time,
@@ -19,6 +20,7 @@ void main() {
     expect(task.createdBy, equals('pob'));
     expect(task.created, equals(time));
     expect(task.dueDate, equals(time));
+    expect(task.priority, equals(1));
     expect(task.completed, equals(false));
   });
 }
