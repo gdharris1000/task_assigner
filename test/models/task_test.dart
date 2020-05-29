@@ -6,12 +6,14 @@ void main() {
   test('task setup', () {
     Timestamp time = Timestamp.fromMicrosecondsSinceEpoch(1590756181000);
     Task task = Task(
+        docId: '1',
         task: 'Eat crisps',
         assignedTo: 'bob',
         createdBy: 'pob',
         created: time,
         dueDate: time);
 
+    expect(task.docId, equals('1'));
     expect(task.task, equals('Eat crisps'));
     expect(task.assignedTo, equals('bob'));
     expect(task.createdBy, equals('pob'));

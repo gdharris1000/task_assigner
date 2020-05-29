@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Task {
+  final String docId;
   final String task;
   final String assignedTo;
   final String createdBy;
@@ -9,7 +10,8 @@ class Task {
   bool completed;
 
   Task(
-      {this.task,
+      {this.docId,
+      this.task,
       this.assignedTo,
       this.created,
       this.createdBy,
