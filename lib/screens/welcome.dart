@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
 import 'register.dart';
+
+FirebaseUser loggedInUser;
 
 class WelcomeScreen extends StatelessWidget {
   static const String id = 'welcome';
