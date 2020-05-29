@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'screens/register.dart';
+import 'screens/login.dart';
+import 'screens/welcome.dart';
+import 'screens/view_tasks.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +14,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Do My Bidding',
-      home: RegisterScreen(),
+      initialRoute: WelcomeScreen.id,
+      routes: {
+        LoginScreen.id: (context) => LoginScreen(),
+        RegisterScreen.id: (context) => RegisterScreen(),
+        WelcomeScreen.id: (context) => WelcomeScreen(),
+        TasksScreen.id: (context) => TasksScreen()
+      },
     );
   }
 }

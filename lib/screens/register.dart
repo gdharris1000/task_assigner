@@ -7,6 +7,7 @@ final _firestore = Firestore.instance;
 FirebaseUser loggedInUser;
 
 class RegisterScreen extends StatefulWidget {
+  static const String id = 'register';
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
 }
@@ -24,7 +25,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         loggedInUser = user;
 
         try {
-          final newUser = await _firestore.collection('users').add({
+          await _firestore.collection('users').add({
             'uid': loggedInUser.uid,
             'name': name,
             'created': Timestamp.now()
@@ -58,6 +59,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
           TextField(
             decoration: InputDecoration(hintText: "Password"),
+            obscureText: true,
             onChanged: (value) {
               password = value;
             },
