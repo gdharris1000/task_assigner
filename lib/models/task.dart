@@ -6,13 +6,13 @@ class Task {
   final String createdBy;
   final Timestamp created;
   final Timestamp dueDate;
-  bool completed = false;
+  bool completed;
 
   Task(
       {this.task,
       this.assignedTo,
-      this.completed,
       this.created,
       this.createdBy,
-      this.dueDate});
+      this.dueDate,
+      this.completed = false});
 }
