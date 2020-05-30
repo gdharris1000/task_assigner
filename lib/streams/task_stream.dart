@@ -24,6 +24,7 @@ class TaskStream extends StatelessWidget {
               taskList.add(Task(
                   task: taskData.data['task'],
                   docId: taskData.documentID,
+                  dueDate: taskData.data['due_date'],
                   assignedTo: taskData.data['assigned_to'],
                   createdBy: taskData.data['created_by'],
                   created: taskData.data['created'],
