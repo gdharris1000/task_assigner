@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:DoMyBidding/streams/users_stream.dart';
 
 class NewTaskScreen extends StatefulWidget {
   static const String id = 'new';
@@ -41,7 +42,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
                   priority = value;
                 });
               },
-              items: <String>['1 - High', '2 - Medium', '3 -Low']
+              items: <String>['1 - High', '2 - Medium', '3 - Low']
                   .map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
@@ -49,6 +50,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
                 );
               }).toList(),
             ),
+            UsersStream(),
           ],
         ),
       ),
