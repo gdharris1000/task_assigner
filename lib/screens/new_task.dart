@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
-class NewTaskScreen extends StatelessWidget {
+class NewTaskScreen extends StatefulWidget {
   static const String id = 'new';
+
+  @override
+  _NewTaskScreenState createState() => _NewTaskScreenState();
+}
+
+class _NewTaskScreenState extends State<NewTaskScreen> {
+  String priority = '1 - High';
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +21,7 @@ class NewTaskScreen extends StatelessWidget {
               decoration: InputDecoration(hintText: 'Task'),
             ),
             TextField(
+              decoration: InputDecoration(hintText: 'Due Date'),
               onTap: () {
                 DatePicker.showDatePicker(context,
                     showTitleActions: true,
@@ -24,7 +32,23 @@ class NewTaskScreen extends StatelessWidget {
                   print('confirm $date');
                 }, currentTime: DateTime.now(), locale: LocaleType.en);
               },
-            )
+            ),
+            DropdownButton<String>(
+              value: priority,
+              icon: Icon(Icons.arrow_drop_down),
+              onChanged: (value) {
+                setState(() {
+                  priority = value;
+                });
+              },
+              items: <String>['1 - High', '2 - Medium', '3 -Low']
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+            ),
           ],
         ),
       ),
