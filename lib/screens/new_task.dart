@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class NewTaskScreen extends StatelessWidget {
   static const String id = 'new';
@@ -12,6 +13,18 @@ class NewTaskScreen extends StatelessWidget {
             TextField(
               decoration: InputDecoration(hintText: 'Task'),
             ),
+            TextField(
+              onTap: () {
+                DatePicker.showDatePicker(context,
+                    showTitleActions: true,
+                    minTime: DateTime.now(),
+                    maxTime: DateTime(2100, 1, 1), onChanged: (date) {
+                  print('change $date');
+                }, onConfirm: (date) {
+                  print('confirm $date');
+                }, currentTime: DateTime.now(), locale: LocaleType.en);
+              },
+            )
           ],
         ),
       ),
