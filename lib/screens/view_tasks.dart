@@ -11,6 +11,9 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+      ),
       body: SafeArea(
         child: Column(
           children: <Widget>[
