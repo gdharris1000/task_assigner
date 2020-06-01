@@ -3,6 +3,7 @@ import 'screens/register.dart';
 import 'screens/login.dart';
 import 'screens/welcome.dart';
 import 'screens/view_tasks.dart';
+import 'screens/new_task.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
         LoginScreen.id: (context) => LoginScreen(),
         RegisterScreen.id: (context) => RegisterScreen(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
-        TasksScreen.id: (context) => TasksScreen()
+        TasksScreen.id: (context) => TasksScreen(),
+        NewTaskScreen.id: (context) => NewTaskScreen(),
       },
     );
   }

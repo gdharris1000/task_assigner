@@ -1,3 +1,4 @@
+import 'package:DoMyBidding/screens/new_task.dart';
 import 'package:DoMyBidding/streams/task_stream.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,7 @@ class _TasksScreenState extends State<TasksScreen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
+        onPressed: () => Navigator.pushNamed(context, NewTaskScreen.id),
       ),
       body: SafeArea(
         child: Column(
