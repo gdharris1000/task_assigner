@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:DoMyBidding/models/task.dart';
+import 'package:intl/intl.dart';
 
 class TaskItem extends StatelessWidget {
   Task task;
@@ -8,7 +9,8 @@ class TaskItem extends StatelessWidget {
 
   String dateToString(date) {
     DateTime timestampToDate = date.toDate();
-    return timestampToDate.toString();
+    String formattedDate = DateFormat('dd-MM-yyyy').format(timestampToDate);
+    return formattedDate;
   }
 
   Color priorityColour() {
