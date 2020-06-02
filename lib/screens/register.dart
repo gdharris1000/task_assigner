@@ -42,45 +42,48 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('Register'),
+        ),
         body: SafeArea(
-      child: Column(
-        children: <Widget>[
-          TextField(
-            decoration: InputDecoration(hintText: "Name"),
-            onChanged: (value) {
-              name = value;
-            },
-          ),
-          TextField(
-            decoration: InputDecoration(hintText: "Email address"),
-            onChanged: (value) {
-              email = value;
-            },
-          ),
-          TextField(
-            decoration: InputDecoration(hintText: "Password"),
-            obscureText: true,
-            onChanged: (value) {
-              password = value;
-            },
-          ),
-          RaisedButton(
-            onPressed: () async {
-              try {
-                final newUser = await _auth.createUserWithEmailAndPassword(
-                    email: email, password: password);
+          child: Column(
+            children: <Widget>[
+              TextField(
+                decoration: InputDecoration(hintText: "Name"),
+                onChanged: (value) {
+                  name = value;
+                },
+              ),
+              TextField(
+                decoration: InputDecoration(hintText: "Email address"),
+                onChanged: (value) {
+                  email = value;
+                },
+              ),
+              TextField(
+                decoration: InputDecoration(hintText: "Password"),
+                obscureText: true,
+                onChanged: (value) {
+                  password = value;
+                },
+              ),
+              RaisedButton(
+                onPressed: () async {
+                  try {
+                    final newUser = await _auth.createUserWithEmailAndPassword(
+                        email: email, password: password);
 
-                if (newUser != null) {
-                  addToDatabase();
-                }
-              } catch (e) {
-                print(e);
-              }
-            },
-            child: Text('Register'),
-          )
-        ],
-      ),
-    ));
+                    if (newUser != null) {
+                      addToDatabase();
+                    }
+                  } catch (e) {
+                    print(e);
+                  }
+                },
+                child: Text('Register'),
+              )
+            ],
+          ),
+        ));
   }
 }

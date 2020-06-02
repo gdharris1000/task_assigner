@@ -75,6 +75,9 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('New Task'),
+      ),
       body: SafeArea(
         child: Column(
           children: <Widget>[

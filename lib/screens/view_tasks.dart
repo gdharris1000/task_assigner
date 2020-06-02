@@ -32,6 +32,9 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Your tasks'),
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () => Navigator.push(
@@ -40,9 +43,6 @@ class _TasksScreenState extends State<TasksScreen> {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            Container(
-              child: Text('Welcome'),
-            ),
             Expanded(child: TaskStream(currentUser)),
           ],
         ),
