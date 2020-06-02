@@ -54,6 +54,18 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     }
   }
 
+  int setPriority(String selected) {
+    if (selected == "1 - High") {
+      return 1;
+    } else if (selected == "2 - Medium") {
+      return 2;
+    } else if (selected == "3 - Low") {
+      return 3;
+    } else {
+      return 1;
+    }
+  }
+
   @override
   void initState() {
     currentUser();
@@ -134,7 +146,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
                   'created': Timestamp.now(),
                   'due_date': dueDate,
                   'task': task,
-                  'priority': 1
+                  'priority': setPriority(priority)
                 });
                 Navigator.pop(context);
               },
