@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
         RegisterScreen.id: (context) => RegisterScreen(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
         TasksScreen.id: (context) => TasksScreen(),
-        NewTaskScreen.id: (context) => NewTaskScreen(),
       },
     );
   }

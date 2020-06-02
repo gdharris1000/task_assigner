@@ -1,6 +1,10 @@
 import 'package:DoMyBidding/screens/new_task.dart';
+import 'package:DoMyBidding/screens/register.dart';
 import 'package:DoMyBidding/streams/task_stream.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+FirebaseUser loggedInUser;
 
 class TasksScreen extends StatefulWidget {
   static const String id = 'tasks';
@@ -14,7 +18,8 @@ class _TasksScreenState extends State<TasksScreen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () => Navigator.pushNamed(context, NewTaskScreen.id),
+        onPressed: () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => NewTaskScreen())),
       ),
       body: SafeArea(
         child: Column(
