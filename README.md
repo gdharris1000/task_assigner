@@ -14,7 +14,7 @@ Built using Dart, Flutter and Firebase
 - See your tasks
 - Add a new task
 
-## Features yet to be added
+## Features Yet to be Added
 - Mark a task as complete
 - View task details
 - Push notification when a new task is assigned to you
@@ -22,7 +22,7 @@ Built using Dart, Flutter and Firebase
 ## Future Features
 - Find out if a task you assigned for someone has been completed
 
-## Packages used
+## Packages Used
 - flutter_datetime_picker
 - intl
 - firebase_core
