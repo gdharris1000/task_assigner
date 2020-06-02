@@ -22,8 +22,10 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   bool completed = false;
   String task = "";
   String userId = "";
-  List<String> userList = ['loading'];
-  String assignTo = "";
+  List<List> userList = [
+    ['loading']
+  ];
+  String assignTo = "loading";
 
   void currentUser() {
     getUserInfo.getCurrentUser().then((FirebaseUser result) {
@@ -35,12 +37,21 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   }
 
   void getUserList() {
-    getUserInfo.getUserNames().then((List<String> result) {
+    getUserInfo.getUserNames().then((List<List> result) {
       setState(() {
         userList = result;
+        assignTo = userList[0][0];
         print(userList);
       });
     });
+  }
+
+  String getUserId() {
+    for (var user in userList) {
+      if (user[0] == assignTo) {
+        return user[1];
+      }
+    }
   }
 
   @override
@@ -106,10 +117,10 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
                   assignTo = value;
                 });
               },
-              items: userList.map<DropdownMenuItem<String>>((String value) {
+              items: userList.map<DropdownMenuItem<String>>((List value) {
                 return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
+                  value: value[0],
+                  child: Text(value[0]),
                 );
               }).toList(),
             ),
@@ -117,7 +128,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
             RaisedButton(
               onPressed: () {
                 _firestore.collection('tasks').document().setData({
-                  'assigned_to': userId,
+                  'assigned_to': getUserId(),
                   'completed': false,
                   'created_by': userId,
                   'created': Timestamp.now(),

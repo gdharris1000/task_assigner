@@ -18,17 +18,31 @@ class GetUserInfo {
     }
   }
 
-  Future<List<String>> getUserNames() async {
+  Future<List<List>> getUserNames() async {
     try {
       final QuerySnapshot users =
           await _firestore.collection('users').getDocuments();
-      List<String> userNames = [];
+      List<List> userNames = [];
 
       for (var user in users.documents) {
-        userNames.add(user['name']);
+        userNames.add([user['name'], user['uid']]);
       }
       print(userNames);
       return userNames;
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<String> getUserID(String name) async {
+    try {
+      final user = await _firestore
+          .collection('users')
+          .where('name', isEqualTo: name)
+          .getDocuments();
+      String userID = user.documents[0]['uid'];
+      print(userID);
+      return userID;
     } catch (e) {
       print(e);
     }
