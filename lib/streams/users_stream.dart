@@ -16,6 +16,7 @@ class UsersStream extends StatelessWidget {
         for (var userData in users) {
           userList.add(userData.data['name']);
         }
+
         return DropdownButton<String>(
           value: userList[0],
           icon: Icon(Icons.arrow_drop_down),

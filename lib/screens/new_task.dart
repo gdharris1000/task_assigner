@@ -20,9 +20,10 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   Timestamp created = Timestamp.now();
   GetUserInfo getUserInfo = GetUserInfo();
   bool completed = false;
-  //String createdBy = loggedInUser.uid;
   String task = "";
   String userId = "";
+  List<String> userList = ['loading'];
+  String assignTo = "";
 
   void currentUser() {
     getUserInfo.getCurrentUser().then((FirebaseUser result) {
@@ -33,9 +34,19 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     });
   }
 
+  void getUserList() {
+    getUserInfo.getUserNames().then((List<String> result) {
+      setState(() {
+        userList = result;
+        print(userList);
+      });
+    });
+  }
+
   @override
   void initState() {
     currentUser();
+    getUserList();
     super.initState();
   }
 
@@ -87,6 +98,21 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
                 );
               }).toList(),
             ),
+            DropdownButton<String>(
+              value: assignTo,
+              icon: Icon(Icons.arrow_drop_down),
+              onChanged: (value) {
+                setState(() {
+                  assignTo = value;
+                });
+              },
+              items: userList.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+            ),
 //            UsersStream(),
             RaisedButton(
               onPressed: () {
@@ -99,7 +125,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
                   'task': task,
                   'priority': 1
                 });
-                print('submitted');
+                Navigator.pop(context);
               },
               child: Text('Submit'),
             ),
