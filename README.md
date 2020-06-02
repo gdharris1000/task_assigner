@@ -1,16 +1,31 @@
-# taskassigner
+# Do My Bidding
 
-A new Flutter application.
+**Work in Progress**
 
-## Getting Started
+An app that lets you assign tasks to other users. 
 
-This project is a starting point for a Flutter application.
+## Technology
 
-A few resources to get you started if this is your first Flutter project:
+Built using Dart, Flutter and Firebase
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Current Features
+- Sign up
+- Log in
+- See your tasks
+- Add a new task
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features yet to be added
+- Mark a task as complete
+- View task details
+- Push notification when a new task is assigned to you
+
+## Future Features
+- Find out if a task you assigned for someone has been completed
+
+## Packages used
+- flutter_datetime_picker
+- intl
+- firebase_core
+- firebase_auth
+- cloud_firestore
+
