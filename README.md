@@ -22,13 +22,11 @@ Built using Dart, Flutter and Firebase
 - View status of tasks you have assigned
 - Styling
 
-## Future Features
-- Find out if a task you assigned for someone has been completed
 
 ## Packages Used
-- flutter_datetime_picker
-- intl
-- firebase_core
-- firebase_auth
-- cloud_firestore
+- [flutter_datetime_picker](https://pub.dev/packages/flutter_datetime_picker)
+- [intl](https://pub.dev/packages/intl)
+- [firebase_core](https://pub.dev/packages/firebase_core)
+- [firebase_auth](https://pub.dev/packages/firebase_auth)
+- [cloud_firestore](https://pub.dev/packages/cloud_firestore)
 
