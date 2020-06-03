@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:DoMyBidding/models/task.dart';
 import 'package:intl/intl.dart';
 import 'package:DoMyBidding/models/user_data.dart';
+import 'package:DoMyBidding/controllers/update_taks.dart';
 
 class TaskDetails extends StatefulWidget {
   final Task task;
@@ -79,6 +80,19 @@ class _TaskDetailsState extends State<TaskDetails> {
             children: <Widget>[
               Text('Created by: '),
               Text(userName),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text('Completed: '),
+              Checkbox(
+                  value: widget.task.completed,
+                  onChanged: (value) {
+                    setState(() {
+                      UpdateTasks().taskComplete(widget.task);
+                    });
+                  }),
             ],
           ),
         ],
