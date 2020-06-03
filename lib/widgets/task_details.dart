@@ -43,6 +43,13 @@ class TaskDetails extends StatelessWidget {
               Text(dateToString(task.dueDate)),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text('Date Created: '),
+              Text(dateToString(task.created)),
+            ],
+          ),
         ],
       ),
     );
