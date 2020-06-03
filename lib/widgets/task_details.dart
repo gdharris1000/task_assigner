@@ -51,11 +51,12 @@ class _TaskDetailsState extends State<TaskDetails> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      scrollable: true,
       title: Text(widget.task.task),
       content: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text('Priority: '),
               priority(),
@@ -63,7 +64,6 @@ class _TaskDetailsState extends State<TaskDetails> {
           ),
           SizedBox(height: 20.0),
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text('Due Date: '),
               Text(dateToString(widget.task.dueDate)),
@@ -71,7 +71,6 @@ class _TaskDetailsState extends State<TaskDetails> {
           ),
           SizedBox(height: 20.0),
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text('Date Created: '),
               Text(dateToString(widget.task.created)),
@@ -79,7 +78,6 @@ class _TaskDetailsState extends State<TaskDetails> {
           ),
           SizedBox(height: 20.0),
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text('Created by: '),
               Text(userName),
@@ -87,7 +85,6 @@ class _TaskDetailsState extends State<TaskDetails> {
           ),
           SizedBox(height: 20.0),
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text('Completed: '),
               Checkbox(
