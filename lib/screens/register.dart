@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:DoMyBidding/screens/view_tasks.dart';
 
 final _firestore = Firestore.instance;
 
@@ -75,6 +76,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                     if (newUser != null) {
                       addToDatabase();
+                      Navigator.pushNamed(context, TasksScreen.id);
                     }
                   } catch (e) {
                     print(e);
