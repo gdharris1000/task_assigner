@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:DoMyBidding/models/task.dart';
 import 'package:intl/intl.dart';
 import 'package:DoMyBidding/controllers/update_taks.dart';
+import 'package:DoMyBidding/widgets/task_details.dart';
+import 'package:DoMyBidding/models/user_data.dart';
 
 class TaskItem extends StatelessWidget {
   Task task;
@@ -12,6 +14,12 @@ class TaskItem extends StatelessWidget {
     DateTime timestampToDate = date.toDate();
     String formattedDate = DateFormat('dd-MM-yyyy').format(timestampToDate);
     return formattedDate;
+  }
+
+  String userName() {
+    GetUserInfo().getUserName(task.createdBy).then((String result) {
+      return result;
+    });
   }
 
   Color priorityColour() {
@@ -28,16 +36,25 @@ class TaskItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CheckboxListTile(
+    return ListTile(
+      onTap: () {
+        showDialog(
+            context: context,
+            barrierDismissible: true,
+            builder: (context) {
+              return TaskDetails(task);
+            });
+      },
       title: Text(
         task.task,
         style: TextStyle(color: priorityColour()),
       ),
       subtitle: Text(dateToString(task.dueDate)),
-      value: task.completed,
-      onChanged: (value) {
-        UpdateTasks().taskComplete(task);
-      },
+      trailing: Checkbox(
+          value: task.completed,
+          onChanged: (value) {
+            UpdateTasks().taskComplete(task);
+          }),
     );
   }
 }

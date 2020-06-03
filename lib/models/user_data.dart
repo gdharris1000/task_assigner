@@ -47,4 +47,18 @@ class GetUserInfo {
       print(e);
     }
   }
+
+  Future<String> getUserName(String uid) async {
+    try {
+      final user = await _firestore
+          .collection('users')
+          .where('uid', isEqualTo: uid)
+          .getDocuments();
+      String userID = user.documents[0]['name'];
+      print(userID);
+      return userID;
+    } catch (e) {
+      print(e);
+    }
+  }
 }
