@@ -14,7 +14,7 @@ Built using Dart, Flutter and Firebase
 - See your tasks
 - Add a new task
 
-## Features Yet to be Added
+## Features Yet To Be Added
 - Mark a task as complete
 - View task details
 - Push notification when a new task is assigned to you

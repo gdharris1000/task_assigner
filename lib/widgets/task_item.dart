@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:DoMyBidding/models/task.dart';
 import 'package:intl/intl.dart';
+import 'package:DoMyBidding/controllers/update_taks.dart';
 
 class TaskItem extends StatelessWidget {
   Task task;
@@ -35,7 +36,7 @@ class TaskItem extends StatelessWidget {
       subtitle: Text(dateToString(task.dueDate)),
       value: task.completed,
       onChanged: (value) {
-        print('hi');
+        UpdateTasks().taskComplete(task);
       },
     );
   }
