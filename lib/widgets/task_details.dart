@@ -54,35 +54,39 @@ class _TaskDetailsState extends State<TaskDetails> {
       title: Text(widget.task.task),
       content: Column(
         children: <Widget>[
-          Row(
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text('Priority: '),
               priority(),
             ],
           ),
-          Row(
+          SizedBox(height: 20.0),
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text('Due Date: '),
               Text(dateToString(widget.task.dueDate)),
             ],
           ),
-          Row(
+          SizedBox(height: 20.0),
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text('Date Created: '),
               Text(dateToString(widget.task.created)),
             ],
           ),
-          Row(
+          SizedBox(height: 20.0),
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text('Created by: '),
               Text(userName),
             ],
           ),
-          Row(
+          SizedBox(height: 20.0),
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text('Completed: '),
