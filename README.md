@@ -19,6 +19,7 @@ Built using Dart, Flutter and Firebase
 
 - View task details
 - Push notification when a new task is assigned to you
+- View status of tasks you have assigned
 
 ## Future Features
 - Find out if a task you assigned for someone has been completed
