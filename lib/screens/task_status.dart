@@ -1,18 +1,17 @@
-import 'package:DoMyBidding/screens/new_task.dart';
-import 'package:DoMyBidding/streams/task_stream.dart';
 import 'package:flutter/material.dart';
+import 'package:DoMyBidding/streams/task_stream.dart';
+import 'new_task.dart';
+import 'package:DoMyBidding/models/filters.dart';
 import 'package:DoMyBidding/models/user_data.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:DoMyBidding/models/filters.dart';
-import 'package:DoMyBidding/screens/task_status.dart';
 
-class TasksScreen extends StatefulWidget {
-  static const String id = 'tasks';
+class TaskStatusScreen extends StatefulWidget {
+  static const String id = 'taskStatus';
   @override
-  _TasksScreenState createState() => _TasksScreenState();
+  _TaskStatusScreenState createState() => _TaskStatusScreenState();
 }
 
-class _TasksScreenState extends State<TasksScreen> {
+class _TaskStatusScreenState extends State<TaskStatusScreen> {
   final GetUserInfo getUserInfo = GetUserInfo();
   String currentUser = "";
 
@@ -35,16 +34,7 @@ class _TasksScreenState extends State<TasksScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your tasks'),
-        actions: <Widget>[
-          FlatButton(
-            onPressed: () => Navigator.pushNamed(
-              context,
-              TaskStatusScreen.id,
-            ),
-            child: Icon(Icons.description),
-          )
-        ],
+        title: Text('Tasks you created'),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
@@ -54,7 +44,7 @@ class _TasksScreenState extends State<TasksScreen> {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            Expanded(child: TaskStream(currentUser, Filter.assignedToUser)),
+            Expanded(child: TaskStream(currentUser, Filter.assignedByUser)),
           ],
         ),
       ),
