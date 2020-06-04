@@ -1,9 +1,11 @@
+import 'package:DoMyBidding/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'screens/register.dart';
 import 'screens/login.dart';
 import 'screens/welcome.dart';
 import 'screens/view_tasks.dart';
 import 'screens/task_status.dart';
+import 'screens/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         TasksScreen.id: (context) => TasksScreen(),
         TaskStatusScreen.id: (context) => TaskStatusScreen(),
+        HomeScreen.id: (context) => HomeScreen(),
       },
     );
   }

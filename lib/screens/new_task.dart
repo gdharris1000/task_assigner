@@ -97,7 +97,8 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
               Text('Due date'),
 
               TextField(
-                decoration: InputDecoration(hintText: 'Due Date'),
+                decoration:
+                    InputDecoration(hintText: dueDate.toDate().toString()),
                 onTap: () {
                   DatePicker.showDatePicker(context,
                       showTitleActions: true,

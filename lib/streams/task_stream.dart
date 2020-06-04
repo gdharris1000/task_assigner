@@ -58,7 +58,7 @@ class TaskStream extends StatelessWidget {
             return ListView.builder(
                 itemBuilder: (context, index) {
                   final task = taskList[index];
-                  return TaskItem(task);
+                  return TaskItem(task, filter);
                 },
                 itemCount: taskList.length);
           }

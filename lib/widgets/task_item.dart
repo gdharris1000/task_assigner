@@ -4,11 +4,13 @@ import 'package:intl/intl.dart';
 import 'package:DoMyBidding/controllers/update_taks.dart';
 import 'package:DoMyBidding/widgets/task_details.dart';
 import 'package:DoMyBidding/models/user_data.dart';
+import 'package:DoMyBidding/models/filters.dart';
 
 class TaskItem extends StatelessWidget {
-  Task task;
+  final Task task;
+  final Filter filter;
 
-  TaskItem(this.task);
+  TaskItem(this.task, this.filter);
 
   String dateToString(date) {
     DateTime timestampToDate = date.toDate();
@@ -36,25 +38,34 @@ class TaskItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: () {
-        showDialog(
-            context: context,
-            barrierDismissible: true,
-            builder: (context) {
-              return TaskDetails(task);
-            });
-      },
-      title: Text(
-        task.task,
-        style: TextStyle(color: priorityColour()),
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: Colors.black, width: 1.0)),
+//        border: Border.all(color: Colors.black, width: 1.0),
+        color: Color.fromRGBO(239, 246, 224, 1.0),
       ),
-      subtitle: Text(dateToString(task.dueDate)),
-      trailing: Checkbox(
-          value: task.completed,
-          onChanged: (value) {
-            UpdateTasks().taskComplete(task);
-          }),
+      child: ListTile(
+        onTap: () {
+          showDialog(
+              context: context,
+              barrierDismissible: true,
+              builder: (context) {
+                return TaskDetails(task);
+              });
+        },
+        title: Text(
+          task.task,
+          style: TextStyle(color: priorityColour()),
+        ),
+        subtitle: Text(dateToString(task.dueDate)),
+        trailing: Checkbox(
+            value: task.completed,
+            onChanged: (value) {
+              if (filter == Filter.assignedToUser) {
+                UpdateTasks().taskComplete(task);
+              } else {}
+            }),
+      ),
     );
   }
 }
