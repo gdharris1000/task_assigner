@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:DoMyBidding/models/task.dart';
 import 'package:intl/intl.dart';
 import 'package:DoMyBidding/models/user_data.dart';
-import 'package:DoMyBidding/controllers/update_taks.dart';
+import 'package:DoMyBidding/controllers/update_task.dart';
+import 'package:DoMyBidding/models/filters.dart';
 
 class TaskDetails extends StatefulWidget {
   final Task task;
+  final Filter filter;
 
-  TaskDetails(this.task);
+  TaskDetails(this.task, this.filter);
 
   @override
   _TaskDetailsState createState() => _TaskDetailsState();
@@ -91,7 +93,9 @@ class _TaskDetailsState extends State<TaskDetails> {
                   value: widget.task.completed,
                   onChanged: (value) {
                     setState(() {
-                      UpdateTasks().taskComplete(widget.task);
+                      if (widget.filter == Filter.assignedToUser) {
+                        UpdateTasks().taskComplete(widget.task);
+                      } else {}
                     });
                   }),
             ],

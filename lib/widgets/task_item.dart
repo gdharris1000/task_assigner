@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:DoMyBidding/models/task.dart';
 import 'package:intl/intl.dart';
-import 'package:DoMyBidding/controllers/update_taks.dart';
+import 'package:DoMyBidding/controllers/update_task.dart';
 import 'package:DoMyBidding/widgets/task_details.dart';
 import 'package:DoMyBidding/models/user_data.dart';
 import 'package:DoMyBidding/models/filters.dart';
@@ -50,7 +50,7 @@ class TaskItem extends StatelessWidget {
               context: context,
               barrierDismissible: true,
               builder: (context) {
-                return TaskDetails(task);
+                return TaskDetails(task, filter);
               });
         },
         title: Text(
