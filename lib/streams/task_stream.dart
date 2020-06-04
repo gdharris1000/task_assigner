@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:DoMyBidding/models/task.dart';
 import 'package:DoMyBidding/widgets/task_item.dart';
+import 'package:DoMyBidding/models/filters.dart';
 
 final _firestore = Firestore.instance;
 
 class TaskStream extends StatelessWidget {
   final String uid;
+  final Filter filter;
 
-  TaskStream(this.uid);
+  TaskStream(this.uid, this.filter);
 
   @override
   Widget build(BuildContext context) {

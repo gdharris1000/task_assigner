@@ -3,6 +3,7 @@ import 'package:DoMyBidding/streams/task_stream.dart';
 import 'package:flutter/material.dart';
 import 'package:DoMyBidding/models/user_data.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:DoMyBidding/models/filters.dart';
 
 class TasksScreen extends StatefulWidget {
   static const String id = 'tasks';
@@ -43,7 +44,7 @@ class _TasksScreenState extends State<TasksScreen> {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            Expanded(child: TaskStream(currentUser)),
+            Expanded(child: TaskStream(currentUser, Filter.assignedToUser)),
           ],
         ),
       ),
