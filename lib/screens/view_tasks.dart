@@ -36,15 +36,6 @@ class _TasksScreenState extends State<TasksScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Your tasks'),
-        actions: <Widget>[
-          FlatButton(
-            onPressed: () => Navigator.pushNamed(
-              context,
-              TaskStatusScreen.id,
-            ),
-            child: Icon(Icons.description),
-          )
-        ],
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),

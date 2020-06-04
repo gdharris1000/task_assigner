@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color.fromRGBO(18, 69, 89, 1.0),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Icon(Icons.move_to_inbox), title: Text('Tasks for me')),
@@ -35,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Color.fromRGBO(174, 195, 175, 1.0),
+        unselectedItemColor: Color.fromRGBO(89, 131, 146, 1.0),
         onTap: _onItemTapped,
       ),
       body: _navOptions.elementAt(_selectedIndex),
