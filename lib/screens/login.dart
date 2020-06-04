@@ -18,31 +18,35 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(title: Text('Login')),
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            TextField(
-              decoration: InputDecoration(hintText: 'Email address'),
-              onChanged: (value) => email = value,
-            ),
-            TextField(
-              decoration: InputDecoration(hintText: 'Password'),
-              obscureText: true,
-              onChanged: (value) => password = value,
-            ),
-            RaisedButton(
-                onPressed: () async {
-                  try {
-                    final user = await _auth.signInWithEmailAndPassword(
-                        email: email, password: password);
-                    if (user != null) {
-                      Navigator.pushNamed(context, TasksScreen.id);
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextField(
+                decoration: InputDecoration(hintText: 'Email address'),
+                onChanged: (value) => email = value,
+              ),
+              TextField(
+                decoration: InputDecoration(hintText: 'Password'),
+                obscureText: true,
+                onChanged: (value) => password = value,
+              ),
+              RaisedButton(
+                  onPressed: () async {
+                    try {
+                      final user = await _auth.signInWithEmailAndPassword(
+                          email: email, password: password);
+                      if (user != null) {
+                        Navigator.pushNamed(context, TasksScreen.id);
+                      }
+                    } catch (e) {
+                      print(e);
                     }
-                  } catch (e) {
-                    print(e);
-                  }
-                },
-                child: Text('Log in'))
-          ],
+                  },
+                  child: Text('Log in'))
+            ],
+          ),
         ),
       ),
     );

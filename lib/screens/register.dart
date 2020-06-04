@@ -47,44 +47,49 @@ class _RegisterScreenState extends State<RegisterScreen> {
           title: Text('Register'),
         ),
         body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              TextField(
-                decoration: InputDecoration(hintText: "Name"),
-                onChanged: (value) {
-                  name = value;
-                },
-              ),
-              TextField(
-                decoration: InputDecoration(hintText: "Email address"),
-                onChanged: (value) {
-                  email = value;
-                },
-              ),
-              TextField(
-                decoration: InputDecoration(hintText: "Password"),
-                obscureText: true,
-                onChanged: (value) {
-                  password = value;
-                },
-              ),
-              RaisedButton(
-                onPressed: () async {
-                  try {
-                    final newUser = await _auth.createUserWithEmailAndPassword(
-                        email: email, password: password);
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TextField(
+                  decoration: InputDecoration(hintText: "Name"),
+                  onChanged: (value) {
+                    name = value;
+                  },
+                ),
+                TextField(
+                  decoration: InputDecoration(hintText: "Email address"),
+                  onChanged: (value) {
+                    email = value;
+                  },
+                ),
+                TextField(
+                  decoration: InputDecoration(hintText: "Password"),
+                  obscureText: true,
+                  onChanged: (value) {
+                    password = value;
+                  },
+                ),
+                RaisedButton(
+                  onPressed: () async {
+                    try {
+                      final newUser =
+                          await _auth.createUserWithEmailAndPassword(
+                              email: email, password: password);
 
-                    if (newUser != null) {
-                      addToDatabase();
-                      Navigator.pushNamed(context, TasksScreen.id);
+                      if (newUser != null) {
+                        addToDatabase();
+                        Navigator.pushNamed(context, TasksScreen.id);
+                      }
+                    } catch (e) {
+                      print(e);
                     }
-                  } catch (e) {
-                    print(e);
-                  }
-                },
-                child: Text('Register'),
-              )
-            ],
+                  },
+                  child: Text('Register'),
+                )
+              ],
+            ),
           ),
         ));
   }

@@ -20,6 +20,9 @@ Built using Dart, Flutter and Firebase
 ## Features Yet To Be Added
 
 - Push notification when a new task is assigned to you
+- Delete tasks
+- Sort tasks by date
+- Sort tasks by priority
 - Styling
 
 
