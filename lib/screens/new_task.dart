@@ -79,82 +79,93 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
         title: Text('New Task'),
       ),
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            TextField(
-              decoration: InputDecoration(hintText: 'Task'),
-              onChanged: (value) {
-                setState(() {
-                  task = value;
-                  print(task);
-                });
-              },
-            ),
-            TextField(
-              decoration: InputDecoration(hintText: 'Due Date'),
-              onTap: () {
-                DatePicker.showDatePicker(context,
-                    showTitleActions: true,
-                    minTime: DateTime.now(),
-                    maxTime: DateTime(2100, 1, 1), onChanged: (date) {
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: <Widget>[
+              Text('Task'),
+              TextField(
+                decoration: InputDecoration(hintText: 'Task'),
+                onChanged: (value) {
                   setState(() {
-                    dueDate = Timestamp.fromDate(date);
+                    task = value;
+                    print(task);
                   });
-                }, onConfirm: (date) {
+                },
+              ),
+              SizedBox(height: 20.0),
+              Text('Due date'),
+
+              TextField(
+                decoration: InputDecoration(hintText: 'Due Date'),
+                onTap: () {
+                  DatePicker.showDatePicker(context,
+                      showTitleActions: true,
+                      minTime: DateTime.now(),
+                      maxTime: DateTime(2100, 1, 1), onChanged: (date) {
+                    setState(() {
+                      dueDate = Timestamp.fromDate(date);
+                    });
+                  }, onConfirm: (date) {
+                    setState(() {
+                      dueDate = Timestamp.fromDate(date);
+                    });
+                  }, currentTime: DateTime.now(), locale: LocaleType.en);
+                },
+              ),
+              SizedBox(height: 20.0),
+              Text('Priority'),
+              DropdownButton<String>(
+                value: priority,
+                icon: Icon(Icons.arrow_drop_down),
+                onChanged: (value) {
                   setState(() {
-                    dueDate = Timestamp.fromDate(date);
+                    priority = value;
                   });
-                }, currentTime: DateTime.now(), locale: LocaleType.en);
-              },
-            ),
-            DropdownButton<String>(
-              value: priority,
-              icon: Icon(Icons.arrow_drop_down),
-              onChanged: (value) {
-                setState(() {
-                  priority = value;
-                });
-              },
-              items: <String>['1 - High', '2 - Medium', '3 - Low']
-                  .map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-            ),
-            DropdownButton<String>(
-              value: assignTo,
-              icon: Icon(Icons.arrow_drop_down),
-              onChanged: (value) {
-                setState(() {
-                  assignTo = value;
-                });
-              },
-              items: userList.map<DropdownMenuItem<String>>((List value) {
-                return DropdownMenuItem<String>(
-                  value: value[0],
-                  child: Text(value[0]),
-                );
-              }).toList(),
-            ),
+                },
+                items: <String>['1 - High', '2 - Medium', '3 - Low']
+                    .map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),
+              SizedBox(height: 20.0),
+              Text('Assign task to:'),
+              DropdownButton<String>(
+                value: assignTo,
+                icon: Icon(Icons.arrow_drop_down),
+                onChanged: (value) {
+                  setState(() {
+                    assignTo = value;
+                  });
+                },
+                items: userList.map<DropdownMenuItem<String>>((List value) {
+                  return DropdownMenuItem<String>(
+                    value: value[0],
+                    child: Text(value[0]),
+                  );
+                }).toList(),
+              ),
 //            UsersStream(),
-            RaisedButton(
-              onPressed: () {
-                _firestore.collection('tasks').document().setData({
-                  'assigned_to': getUserId(),
-                  'completed': false,
-                  'created_by': userId,
-                  'created': Timestamp.now(),
-                  'due_date': dueDate,
-                  'task': task,
-                  'priority': setPriority(priority)
-                });
-                Navigator.pop(context);
-              },
-              child: Text('Submit'),
-            ),
-          ],
+              RaisedButton(
+                onPressed: () {
+                  _firestore.collection('tasks').document().setData({
+                    'assigned_to': getUserId(),
+                    'completed': false,
+                    'created_by': userId,
+                    'created': Timestamp.now(),
+                    'due_date': dueDate,
+                    'task': task,
+                    'priority': setPriority(priority)
+                  });
+                  Navigator.pop(context);
+                },
+                child: Text('Submit'),
+              ),
+            ],
+          ),
         ),
       ),
     );
