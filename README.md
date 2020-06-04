@@ -15,11 +15,11 @@ Built using Dart, Flutter and Firebase
 - Add a new task
 - Mark a task as complete
 - View task details
+- View status of tasks you have assigned
 
 ## Features Yet To Be Added
 
 - Push notification when a new task is assigned to you
-- View status of tasks you have assigned
 - Styling
 
 

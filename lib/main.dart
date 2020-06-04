@@ -15,6 +15,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Do My Bidding',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Color.fromRGBO(106, 142, 174, 1.0),
+        accentColor: Color.fromRGBO(106, 142, 174, 1.0),
+        buttonColor: Color.fromRGBO(106, 142, 174, 1.0),
+        toggleableActiveColor: Color.fromRGBO(106, 142, 174, 1.0),
+      ),
       initialRoute: WelcomeScreen.id,
       routes: {
         LoginScreen.id: (context) => LoginScreen(),
