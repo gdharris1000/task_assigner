@@ -16,11 +16,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Do My Bidding',
       theme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Color.fromRGBO(106, 142, 174, 1.0),
-        accentColor: Color.fromRGBO(106, 142, 174, 1.0),
-        buttonColor: Color.fromRGBO(106, 142, 174, 1.0),
-        toggleableActiveColor: Color.fromRGBO(106, 142, 174, 1.0),
+//        brightness: Brightness.dark,
+//        backgroundColor: Color.fromRGBO(10, 54, 157, 1.0),
+        primaryColor: Color.fromRGBO(18, 69, 89, 1.0),
+        accentColor: Color.fromRGBO(18, 69, 89, 1.0),
+        buttonTheme: ButtonThemeData(
+          buttonColor: Color.fromRGBO(18, 69, 89, 1.0),
+          textTheme: ButtonTextTheme.primary,
+        ),
+        toggleableActiveColor: Color.fromRGBO(18, 69, 89, 1.0),
       ),
       initialRoute: WelcomeScreen.id,
       routes: {
