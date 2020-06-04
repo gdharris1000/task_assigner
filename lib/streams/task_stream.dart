@@ -27,16 +27,32 @@ class TaskStream extends StatelessWidget {
             final tasks = snapshot.data.documents.reversed;
 
             for (var taskData in tasks) {
-              if (taskData.data['assigned_to'] == uid) {
-                taskList.add(Task(
-                    task: taskData.data['task'],
-                    docId: taskData.documentID,
-                    dueDate: taskData.data['due_date'],
-                    assignedTo: taskData.data['assigned_to'],
-                    createdBy: taskData.data['created_by'],
-                    created: taskData.data['created'],
-                    completed: taskData.data['completed'],
-                    priority: taskData.data['priority']));
+              //assigned to user
+              if (filter == Filter.assignedToUser) {
+                if (taskData.data['assigned_to'] == uid) {
+                  taskList.add(Task(
+                      task: taskData.data['task'],
+                      docId: taskData.documentID,
+                      dueDate: taskData.data['due_date'],
+                      assignedTo: taskData.data['assigned_to'],
+                      createdBy: taskData.data['created_by'],
+                      created: taskData.data['created'],
+                      completed: taskData.data['completed'],
+                      priority: taskData.data['priority']));
+                }
+                //assigned by user
+              } else if (filter == Filter.assignedByUser) {
+                if (taskData.data['created_by'] == uid) {
+                  taskList.add(Task(
+                      task: taskData.data['task'],
+                      docId: taskData.documentID,
+                      dueDate: taskData.data['due_date'],
+                      assignedTo: taskData.data['assigned_to'],
+                      createdBy: taskData.data['created_by'],
+                      created: taskData.data['created'],
+                      completed: taskData.data['completed'],
+                      priority: taskData.data['priority']));
+                }
               }
             }
             return ListView.builder(
