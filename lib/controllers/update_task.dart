@@ -15,4 +15,8 @@ class UpdateTasks {
       'completed': task.completed = !task.completed
     });
   }
+
+  void deleteTask(Task task) {
+    _firestore.collection('tasks').document(task.docId).delete();
+  }
 }
