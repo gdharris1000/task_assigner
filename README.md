@@ -16,11 +16,12 @@ Built using Dart, Flutter and Firebase
 - Mark a task as complete
 - View task details
 - View status of tasks you have assigned
+- Delete tasks
 
 ## Features Yet To Be Added
 
 - Push notification when a new task is assigned to you
-- Delete tasks
+- Alert before task deletion 
 - Sort tasks by date
 - Sort tasks by priority
 - Styling
