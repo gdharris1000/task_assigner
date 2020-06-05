@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:DoMyBidding/screens/task_status.dart';
 import 'package:DoMyBidding/screens/view_tasks.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home';
@@ -30,9 +31,11 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Color.fromRGBO(18, 69, 89, 1.0),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(Icons.move_to_inbox), title: Text('Tasks for me')),
+              icon: FaIcon(FontAwesomeIcons.solidUser),
+              title: Text('Tasks for me')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.send), title: Text('Tasks by me')),
+              icon: FaIcon(FontAwesomeIcons.userTie),
+              title: Text('Tasks by me')),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Color.fromRGBO(174, 195, 175, 1.0),

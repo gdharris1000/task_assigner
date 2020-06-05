@@ -36,4 +36,5 @@ Built using Dart, Flutter and Firebase
 - [firebase_core](https://pub.dev/packages/firebase_core)
 - [firebase_auth](https://pub.dev/packages/firebase_auth)
 - [cloud_firestore](https://pub.dev/packages/cloud_firestore)
+- [font_awesome_flutter](https://pub.dev/packages/font_awesome_flutter)
 
