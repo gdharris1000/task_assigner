@@ -1,6 +1,6 @@
 # Do My Bidding
 
-**Work in Progress**
+![Screenshots](screenshots.jpg)
 
 An app that lets you assign tasks to other users. 
 
