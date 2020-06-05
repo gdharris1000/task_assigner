@@ -53,42 +53,57 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                TextField(
-                  decoration: InputDecoration(hintText: "Name"),
-                  onChanged: (value) {
-                    name = value;
-                  },
+                Flexible(
+                  child: Hero(
+                    tag: 'logo',
+                    child: Image.asset('assets/images/logo.png'),
+                  ),
+                  flex: 2,
                 ),
-                TextField(
-                  decoration: InputDecoration(hintText: "Email address"),
-                  onChanged: (value) {
-                    email = value;
-                  },
-                ),
-                TextField(
-                  decoration: InputDecoration(hintText: "Password"),
-                  obscureText: true,
-                  onChanged: (value) {
-                    password = value;
-                  },
-                ),
-                RaisedButton(
-                  onPressed: () async {
-                    try {
-                      final newUser =
-                          await _auth.createUserWithEmailAndPassword(
-                              email: email, password: password);
+                SizedBox(height: 30.0),
+                Flexible(
+                  flex: 5,
+                  child: Column(
+                    children: <Widget>[
+                      TextField(
+                        decoration: InputDecoration(hintText: "Name"),
+                        onChanged: (value) {
+                          name = value;
+                        },
+                      ),
+                      TextField(
+                        decoration: InputDecoration(hintText: "Email address"),
+                        onChanged: (value) {
+                          email = value;
+                        },
+                      ),
+                      TextField(
+                        decoration: InputDecoration(hintText: "Password"),
+                        obscureText: true,
+                        onChanged: (value) {
+                          password = value;
+                        },
+                      ),
+                      RaisedButton(
+                        onPressed: () async {
+                          try {
+                            final newUser =
+                                await _auth.createUserWithEmailAndPassword(
+                                    email: email, password: password);
 
-                      if (newUser != null) {
-                        addToDatabase();
-                        Navigator.pushNamed(context, HomeScreen.id);
-                      }
-                    } catch (e) {
-                      print(e);
-                    }
-                  },
-                  child: Text('Register'),
-                )
+                            if (newUser != null) {
+                              addToDatabase();
+                              Navigator.pushNamed(context, HomeScreen.id);
+                            }
+                          } catch (e) {
+                            print(e);
+                          }
+                        },
+                        child: Text('Register'),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
