@@ -30,7 +30,7 @@ class TaskItem extends StatelessWidget {
     if (task.priority == 1) {
       return Colors.red;
     } else if (task.priority == 2) {
-      return Colors.amber;
+      return Colors.orange;
     } else if (task.priority == 3) {
       return Colors.green;
     } else {

@@ -16,7 +16,8 @@ class TaskDetails extends StatefulWidget {
 }
 
 class _TaskDetailsState extends State<TaskDetails> {
-  String userName = "";
+  String createdName = "";
+  String assignedName = "";
 
   Text priority() {
     if (widget.task.priority == 1) {
@@ -33,7 +34,13 @@ class _TaskDetailsState extends State<TaskDetails> {
   void getUserName() {
     GetUserInfo().getUserName(widget.task.createdBy).then((String result) {
       setState(() {
-        userName = result;
+        createdName = result;
+      });
+    });
+
+    GetUserInfo().getUserName(widget.task.assignedTo).then((String result) {
+      setState(() {
+        assignedName = result;
       });
     });
   }
@@ -54,41 +61,76 @@ class _TaskDetailsState extends State<TaskDetails> {
   Widget build(BuildContext context) {
     return AlertDialog(
       scrollable: true,
-      title: Text(widget.task.task),
+      title: Text(
+        widget.task.task,
+        style: TextStyle(fontWeight: FontWeight.bold),
+        textAlign: TextAlign.center,
+      ),
       content: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text('Priority: '),
+              Text(
+                'Priority:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               priority(),
             ],
           ),
           SizedBox(height: 20.0),
-          Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text('Due Date: '),
+              Text(
+                'Due Date:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               Text(dateToString(widget.task.dueDate)),
             ],
           ),
           SizedBox(height: 20.0),
-          Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text('Date Created: '),
+              Text(
+                'Date Created:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               Text(dateToString(widget.task.created)),
             ],
           ),
           SizedBox(height: 20.0),
-          Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text('Created by: '),
-              Text(userName),
+              Text(
+                'Created by:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text(createdName),
             ],
           ),
           SizedBox(height: 20.0),
-          Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text('Completed: '),
+              Text(
+                'Assigned to:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text(assignedName),
+            ],
+          ),
+          SizedBox(height: 10.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                'Completed:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               Checkbox(
                   value: widget.task.completed,
                   onChanged: (value) {

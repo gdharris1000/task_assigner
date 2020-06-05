@@ -17,6 +17,7 @@ Built using Dart, Flutter and Firebase
 - View task details
 - View status of tasks you have assigned
 - Delete tasks
+- Log out
 
 ## Features Yet To Be Added
 
@@ -24,10 +25,9 @@ Built using Dart, Flutter and Firebase
 - Alert before task deletion 
 - Sort tasks by date
 - Sort tasks by priority
-- Styling
 - Error messages
 - Password validation
-- Log out
+
 
 
 ## Packages Used
