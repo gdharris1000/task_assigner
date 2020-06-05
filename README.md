@@ -25,6 +25,9 @@ Built using Dart, Flutter and Firebase
 - Sort tasks by date
 - Sort tasks by priority
 - Styling
+- Error messages
+- Password validation
+- Log out
 
 
 ## Packages Used

@@ -10,22 +10,38 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(174, 195, 176, 1.0),
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, LoginScreen.id);
-                },
-                child: Text('Login'),
+              Flexible(
+                child: Hero(
+                  tag: 'logo',
+                  child: Image.asset('assets/images/logo.png'),
+                ),
+                flex: 2,
               ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, RegisterScreen.id);
-                },
-                child: Text('Register'),
+              SizedBox(height: 30.0),
+              Flexible(
+                flex: 1,
+                child: Column(
+                  children: <Widget>[
+                    RaisedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, LoginScreen.id);
+                      },
+                      child: Text('Login'),
+                    ),
+                    RaisedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, RegisterScreen.id);
+                      },
+                      child: Text('Register'),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

@@ -17,6 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(174, 195, 176, 1.0),
       appBar: AppBar(title: Text('Login')),
       body: SafeArea(
         child: Padding(
@@ -24,29 +25,45 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextField(
-                decoration: InputDecoration(hintText: 'Email address'),
-                onChanged: (value) => email = value,
+              Flexible(
+                child: Hero(
+                  tag: 'logo',
+                  child: Image.asset('assets/images/logo.png'),
+                ),
+                flex: 2,
               ),
-              TextField(
-                decoration: InputDecoration(hintText: 'Password'),
-                obscureText: true,
-                onChanged: (value) => password = value,
-              ),
-              RaisedButton(
-                  onPressed: () async {
-                    try {
-                      final user = await _auth.signInWithEmailAndPassword(
-                          email: email, password: password);
-                      if (user != null) {
+              SizedBox(height: 30.0),
+              Flexible(
+                flex: 5,
+                child: Column(
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(hintText: 'Email address'),
+                      onChanged: (value) => email = value,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(hintText: 'Password'),
+                      obscureText: true,
+                      onChanged: (value) => password = value,
+                    ),
+                    RaisedButton(
+                      onPressed: () async {
+                        try {
+                          final user = await _auth.signInWithEmailAndPassword(
+                              email: email, password: password);
+                          if (user != null) {
 //                        Navigator.pushNamed(context, TasksScreen.id);
-                        Navigator.pushNamed(context, HomeScreen.id);
-                      }
-                    } catch (e) {
-                      print(e);
-                    }
-                  },
-                  child: Text('Log in'))
+                            Navigator.pushNamed(context, HomeScreen.id);
+                          }
+                        } catch (e) {
+                          print(e);
+                        }
+                      },
+                      child: Text('Log in'),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),
