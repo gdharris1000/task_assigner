@@ -61,4 +61,8 @@ class GetUserInfo {
       print(e);
     }
   }
+
+  void logOut() {
+    _auth.signOut();
+  }
 }

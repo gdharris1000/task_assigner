@@ -1,10 +1,11 @@
 import 'package:DoMyBidding/screens/new_task.dart';
+import 'package:DoMyBidding/screens/welcome.dart';
 import 'package:DoMyBidding/streams/task_stream.dart';
 import 'package:flutter/material.dart';
 import 'package:DoMyBidding/models/user_data.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:DoMyBidding/models/filters.dart';
-import 'package:DoMyBidding/screens/task_status.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TasksScreen extends StatefulWidget {
   static const String id = 'tasks';
@@ -36,6 +37,19 @@ class _TasksScreenState extends State<TasksScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Your tasks'),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () {
+              GetUserInfo().logOut();
+              Navigator.pop(context);
+              Navigator.pushNamed(context, WelcomeScreen.id);
+            },
+            child: FaIcon(
+              FontAwesomeIcons.signOutAlt,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
