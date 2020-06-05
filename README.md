@@ -1,11 +1,10 @@
 # Do My Bidding
 
-![Screenshots](screenshots.jpg)
-
 An app that lets you assign tasks to other users. 
 
-## Technology
+![Screenshots](screenshots.jpg)
 
+## Technology
 Built using Dart, Flutter and Firebase
 
 ## Current Features
@@ -20,15 +19,12 @@ Built using Dart, Flutter and Firebase
 - Log out
 
 ## Features Yet To Be Added
-
 - Push notification when a new task is assigned to you
 - Alert before task deletion 
 - Sort tasks by date
 - Sort tasks by priority
 - Error messages
 - Password validation
-
-
 
 ## Packages Used
 - [flutter_datetime_picker](https://pub.dev/packages/flutter_datetime_picker)
