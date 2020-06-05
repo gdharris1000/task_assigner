@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:DoMyBidding/models/task.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:DoMyBidding/controllers/update_task.dart';
 import 'package:DoMyBidding/widgets/task_details.dart';
 import 'package:DoMyBidding/models/user_data.dart';
 import 'package:DoMyBidding/models/filters.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TaskItem extends StatelessWidget {
   final Task task;
@@ -43,6 +45,24 @@ class TaskItem extends StatelessWidget {
         UpdateTasks().deleteTask(task);
       },
       key: UniqueKey(),
+      background: Container(
+        alignment: AlignmentDirectional.centerStart,
+        padding: EdgeInsets.only(left: 20.0),
+        color: Colors.red,
+        child: FaIcon(
+          FontAwesomeIcons.solidTrashAlt,
+          color: Colors.white,
+        ),
+      ),
+      secondaryBackground: Container(
+        alignment: AlignmentDirectional.centerEnd,
+        padding: EdgeInsets.only(right: 20.0),
+        color: Colors.red,
+        child: FaIcon(
+          FontAwesomeIcons.solidTrashAlt,
+          color: Colors.white,
+        ),
+      ),
       child: Container(
         decoration: BoxDecoration(
           border: Border(bottom: BorderSide(color: Colors.black, width: 1.0)),
