@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:DoMyBidding/models/user_data.dart';
-import 'package:intl/intl.dart';
+import 'package:DoMyBidding/controllers/user_data.dart';
+import 'package:DoMyBidding/widgets/date_format.dart';
 
 final _firestore = Firestore.instance;
 
@@ -54,11 +54,11 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     }
   }
 
-  String dateToString(date) {
-    DateTime timestampToDate = date.toDate();
-    String formattedDate = DateFormat('dd-MM-yyyy').format(timestampToDate);
-    return formattedDate;
-  }
+//  String dateToString(date) {
+//    DateTime timestampToDate = date.toDate();
+//    String formattedDate = DateFormat('dd-MM-yyyy').format(timestampToDate);
+//    return formattedDate;
+//  }
 
   int setPriority(String selected) {
     if (selected == "1 - High") {
@@ -104,7 +104,8 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
               Text('Due date'),
 
               TextField(
-                decoration: InputDecoration(hintText: dateToString(dueDate)),
+                decoration: InputDecoration(
+                    hintText: DateTimeFormatter().dateToString(dueDate)),
                 onTap: () {
                   DatePicker.showDatePicker(context,
                       showTitleActions: true,

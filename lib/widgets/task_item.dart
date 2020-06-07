@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:DoMyBidding/controllers/update_task.dart';
 import 'package:DoMyBidding/widgets/task_details.dart';
-import 'package:DoMyBidding/models/user_data.dart';
+import 'package:DoMyBidding/controllers/user_data.dart';
 import 'package:DoMyBidding/models/filters.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

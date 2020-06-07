@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:DoMyBidding/models/task.dart';
 import 'package:intl/intl.dart';
-import 'package:DoMyBidding/models/user_data.dart';
+import 'package:DoMyBidding/controllers/user_data.dart';
 import 'package:DoMyBidding/controllers/update_task.dart';
 import 'package:DoMyBidding/models/filters.dart';
 
