@@ -54,12 +54,6 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     }
   }
 
-//  String dateToString(date) {
-//    DateTime timestampToDate = date.toDate();
-//    String formattedDate = DateFormat('dd-MM-yyyy').format(timestampToDate);
-//    return formattedDate;
-//  }
-
   int setPriority(String selected) {
     if (selected == "1 - High") {
       return 1;

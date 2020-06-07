@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:DoMyBidding/models/task.dart';
-import 'package:intl/intl.dart';
+import 'package:DoMyBidding/widgets/date_format.dart';
 import 'package:DoMyBidding/controllers/user_data.dart';
 import 'package:DoMyBidding/controllers/update_task.dart';
 import 'package:DoMyBidding/models/filters.dart';
@@ -45,12 +45,6 @@ class _TaskDetailsState extends State<TaskDetails> {
     });
   }
 
-  String dateToString(date) {
-    DateTime timestampToDate = date.toDate();
-    String formattedDate = DateFormat('dd-MM-yyyy').format(timestampToDate);
-    return formattedDate;
-  }
-
   @override
   void initState() {
     getUserName();
@@ -87,7 +81,7 @@ class _TaskDetailsState extends State<TaskDetails> {
                 'Due Date:',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Text(dateToString(widget.task.dueDate)),
+              Text(DateTimeFormatter().dateToString(widget.task.dueDate)),
             ],
           ),
           SizedBox(height: 20.0),
@@ -98,7 +92,7 @@ class _TaskDetailsState extends State<TaskDetails> {
                 'Date Created:',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Text(dateToString(widget.task.created)),
+              Text(DateTimeFormatter().dateToString(widget.task.created)),
             ],
           ),
           SizedBox(height: 20.0),

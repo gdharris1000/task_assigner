@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:DoMyBidding/models/task.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:intl/intl.dart';
+import 'package:DoMyBidding/widgets/date_format.dart';
 import 'package:DoMyBidding/controllers/update_task.dart';
 import 'package:DoMyBidding/widgets/task_details.dart';
 import 'package:DoMyBidding/controllers/user_data.dart';
 import 'package:DoMyBidding/models/filters.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TaskItem extends StatelessWidget {
   final Task task;
   final Filter filter;
 
   TaskItem(this.task, this.filter);
-
-  String dateToString(date) {
-    DateTime timestampToDate = date.toDate();
-    String formattedDate = DateFormat('dd-MM-yyyy').format(timestampToDate);
-    return formattedDate;
-  }
 
   String userName() {
     GetUserInfo().getUserName(task.createdBy).then((String result) {
@@ -82,7 +75,7 @@ class TaskItem extends StatelessWidget {
             task.task,
             style: TextStyle(color: priorityColour()),
           ),
-          subtitle: Text(dateToString(task.dueDate)),
+          subtitle: Text(DateTimeFormatter().dateToString(task.dueDate)),
           trailing: Checkbox(
               value: task.completed,
               onChanged: (value) {
