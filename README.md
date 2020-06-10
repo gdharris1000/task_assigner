@@ -34,3 +34,45 @@ Built using Dart, Flutter and Firebase
 - [cloud_firestore](https://pub.dev/packages/cloud_firestore)
 - [font_awesome_flutter](https://pub.dev/packages/font_awesome_flutter)
 
+## Setup
+
+To get the external libraries used:
+
+```bash
+$ flutter pub get
+```
+
+
+### Database
+
+The GoogleService-Info.plist and google-services.json files required for Firebase have not been included in the repo. 
+
+#### Firebase Authentication
+
+Firebase authentication with e-mail and password has been set up for this app.
+
+#### Tables
+
+The database contains 2 tables. The fields used are as follows...
+
+##### Users
+
+| Field | Data Type | Notes |
+|---|---|---|  
+| uid | String | This is the same as the document id for the user in the auth table |
+| name | String | | 
+| created | Timestamp | |
+
+##### Tasks
+
+| Field | Data Type | Notes |
+|---|---|---|  
+| assigned_to | String | The uid of the user to whom the task is assigned |
+| completed | Boolean | | 
+| created | Timestamp | |
+| created_by | String | The uid of the user who created the task |
+| due_date | Timestamp | |
+| priority | int | 1, 2, or 3 |
+| task | String | |
+
+
