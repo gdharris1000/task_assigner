@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:DoMyBidding/models/task.dart';
+import 'package:TaskAssigner/models/task.dart';
 
 void main() {
   test('task setup', () {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:DoMyBidding/screens/task_status.dart';
-import 'package:DoMyBidding/screens/view_tasks.dart';
+import 'package:TaskAssigner/screens/task_status.dart';
+import 'package:TaskAssigner/screens/view_tasks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {

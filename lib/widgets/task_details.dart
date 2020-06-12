@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:DoMyBidding/models/task.dart';
-import 'package:DoMyBidding/widgets/date_format.dart';
-import 'package:DoMyBidding/controllers/user_data.dart';
-import 'package:DoMyBidding/controllers/update_task.dart';
-import 'package:DoMyBidding/models/filters.dart';
+import 'package:TaskAssigner/models/task.dart';
+import 'package:TaskAssigner/widgets/date_format.dart';
+import 'package:TaskAssigner/controllers/user_data.dart';
+import 'package:TaskAssigner/controllers/update_task.dart';
+import 'package:TaskAssigner/models/filters.dart';
 
 class TaskDetails extends StatefulWidget {
   final Task task;

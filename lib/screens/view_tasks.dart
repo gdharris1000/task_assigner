@@ -1,10 +1,10 @@
-import 'package:DoMyBidding/screens/new_task.dart';
-import 'package:DoMyBidding/screens/welcome.dart';
-import 'package:DoMyBidding/streams/task_stream.dart';
+import 'package:TaskAssigner/screens/new_task.dart';
+import 'package:TaskAssigner/screens/welcome.dart';
+import 'package:TaskAssigner/streams/task_stream.dart';
 import 'package:flutter/material.dart';
-import 'package:DoMyBidding/controllers/user_data.dart';
+import 'package:TaskAssigner/controllers/user_data.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:DoMyBidding/models/filters.dart';
+import 'package:TaskAssigner/models/filters.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TasksScreen extends StatefulWidget {

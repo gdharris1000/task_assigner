@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:DoMyBidding/controllers/user_data.dart';
-import 'package:DoMyBidding/widgets/date_format.dart';
+import 'package:TaskAssigner/controllers/user_data.dart';
+import 'package:TaskAssigner/widgets/date_format.dart';
 
 final _firestore = Firestore.instance;
 

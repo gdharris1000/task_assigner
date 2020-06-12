@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:DoMyBidding/widgets/date_format.dart';
+import 'package:TaskAssigner/widgets/date_format.dart';
 
 void main() {
   test('date format', () {

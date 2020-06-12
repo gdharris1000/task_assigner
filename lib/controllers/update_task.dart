@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:DoMyBidding/models/task.dart';
+import 'package:TaskAssigner/models/task.dart';
 
 final _firestore = Firestore.instance;
 

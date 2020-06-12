@@ -1,4 +1,4 @@
-# Do My Bidding
+# TASK ASSIGNER
 
 An app that lets you assign tasks to other users. 
 

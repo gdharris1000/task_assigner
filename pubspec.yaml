@@ -1,4 +1,4 @@
-name: DoMyBidding
+name: TaskAssigner
 description: An app that lets you assign tasks to yourself and other users.
 
 # The following line prevents the package from being accidentally published to

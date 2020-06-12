@@ -1,4 +1,4 @@
-import 'package:DoMyBidding/screens/home.dart';
+import 'package:TaskAssigner/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'screens/register.dart';
 import 'screens/login.dart';

@@ -1,5 +1,5 @@
-import 'package:DoMyBidding/screens/view_tasks.dart';
-import 'package:DoMyBidding/screens/home.dart';
+import 'package:TaskAssigner/screens/view_tasks.dart';
+import 'package:TaskAssigner/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:DoMyBidding/models/task.dart';
-import 'package:DoMyBidding/widgets/task_item.dart';
-import 'package:DoMyBidding/models/filters.dart';
+import 'package:TaskAssigner/models/task.dart';
+import 'package:TaskAssigner/widgets/task_item.dart';
+import 'package:TaskAssigner/models/filters.dart';
 
 final _firestore = Firestore.instance;
 
