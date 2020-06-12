@@ -6,7 +6,7 @@ import 'package:mockito/mockito.dart';
 import 'package:TaskAssigner/models/task.dart';
 import 'package:TaskAssigner/models/filters.dart';
 
-final Timestamp time = Timestamp.fromMicrosecondsSinceEpoch(1590756181000);
+final Timestamp time = Timestamp.fromMillisecondsSinceEpoch(1590756181000);
 
 class FakeTask extends Fake implements Task {
   final String docId = '1';
@@ -33,7 +33,10 @@ void main() {
 
     final taskFinder = find.text('Eat crisps');
     final checkedFinder = find.byType(Checkbox);
+    final dueDateFinder = find.text('29-05-2020');
+
     expect(taskFinder, findsOneWidget);
     expect(checkedFinder, findsOneWidget);
+    expect(dueDateFinder, findsOneWidget);
   });
 }
