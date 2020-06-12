@@ -32,7 +32,8 @@ void main() {
     );
 
     final taskFinder = find.text('Eat crisps');
-
+    final checkedFinder = find.byType(Checkbox);
     expect(taskFinder, findsOneWidget);
+    expect(checkedFinder, findsOneWidget);
   });
 }
