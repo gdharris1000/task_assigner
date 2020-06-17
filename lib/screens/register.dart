@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:TaskAssigner/screens/home.dart';
+import 'package:email_validator/email_validator.dart';
 
 final _firestore = Firestore.instance;
 
@@ -80,6 +81,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               InputDecoration(hintText: "Email address"),
                           onChanged: (value) {
                             email = value;
+                          },
+                          validator: (value) {
+                            if (!EmailValidator.validate(value)) {
+                              return 'Email address is invalid';
+                            }
+                            return null;
                           },
                         ),
                         TextFormField(
