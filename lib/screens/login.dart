@@ -1,6 +1,7 @@
 import 'package:TaskAssigner/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:email_validator/email_validator.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login';
@@ -43,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         decoration: InputDecoration(hintText: 'E-mail address'),
                         onChanged: (value) => email = value,
                         validator: (value) {
-                          if (!value.contains('@')) {
+                          if (!EmailValidator.validate(value)) {
                             return 'Invalid e-mail address';
                           }
                           return null;
