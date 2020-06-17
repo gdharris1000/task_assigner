@@ -15,9 +15,11 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final _auth = FirebaseAuth.instance;
+  final formKey = GlobalKey<FormState>();
   String name;
   String email;
   String password;
+  String passwordCheck;
 
   void addToDatabase() async {
     try {
@@ -61,47 +63,73 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   flex: 2,
                 ),
                 SizedBox(height: 30.0),
-                Flexible(
-                  flex: 5,
-                  child: Column(
-                    children: <Widget>[
-                      TextField(
-                        decoration: InputDecoration(hintText: "Name"),
-                        onChanged: (value) {
-                          name = value;
-                        },
-                      ),
-                      TextField(
-                        decoration: InputDecoration(hintText: "Email address"),
-                        onChanged: (value) {
-                          email = value;
-                        },
-                      ),
-                      TextField(
-                        decoration: InputDecoration(hintText: "Password"),
-                        obscureText: true,
-                        onChanged: (value) {
-                          password = value;
-                        },
-                      ),
-                      RaisedButton(
-                        onPressed: () async {
-                          try {
-                            final newUser =
-                                await _auth.createUserWithEmailAndPassword(
-                                    email: email, password: password);
-
-                            if (newUser != null) {
-                              addToDatabase();
-                              Navigator.pushNamed(context, HomeScreen.id);
+                Form(
+                  key: formKey,
+                  child: Flexible(
+                    flex: 5,
+                    child: Column(
+                      children: <Widget>[
+                        TextFormField(
+                          decoration: InputDecoration(hintText: "Name"),
+                          onChanged: (value) {
+                            name = value;
+                          },
+                        ),
+                        TextFormField(
+                          decoration:
+                              InputDecoration(hintText: "Email address"),
+                          onChanged: (value) {
+                            email = value;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(hintText: "Password"),
+                          obscureText: true,
+                          onChanged: (value) {
+                            password = value;
+                          },
+                          validator: (value) {
+                            if (value.length < 8) {
+                              return 'Password length should be 8 characters or more';
                             }
-                          } catch (e) {
-                            print(e);
-                          }
-                        },
-                        child: Text('Register'),
-                      ),
-                    ],
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration:
+                              InputDecoration(hintText: "Confirm password"),
+                          obscureText: true,
+                          onChanged: (value) {
+                            passwordCheck = value;
+                          },
+                          validator: (value) {
+                            if (value != password) {
+                              return 'Passwords do not match';
+                            }
+                            return null;
+                          },
+                        ),
+                        RaisedButton(
+                          onPressed: () async {
+                            if (formKey.currentState.validate()) {
+                              try {
+                                final newUser =
+                                    await _auth.createUserWithEmailAndPassword(
+                                        email: email, password: password);
+
+                                if (newUser != null) {
+                                  addToDatabase();
+                                  Navigator.pushNamed(context, HomeScreen.id);
+                                }
+                              } catch (e) {
+                                print(e);
+                              }
+                            }
+                          },
+                          child: Text('Register'),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

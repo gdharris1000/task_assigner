@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         obscureText: true,
                         onChanged: (value) => password = value,
                         validator: (value) {
-                          if (value.length < 4) {
+                          if (value.length < 8) {
                             return 'Password is too short';
                           }
                           return null;
