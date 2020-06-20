@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:TaskAssigner/screens/home.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:TaskAssigner/mixins/validation_mixin.dart';
 
 final _firestore = Firestore.instance;
 
@@ -14,7 +15,7 @@ class RegisterScreen extends StatefulWidget {
   _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _RegisterScreenState extends State<RegisterScreen> with ValidationMixin {
   final _auth = FirebaseAuth.instance;
   final formKey = GlobalKey<FormState>();
   String name;
@@ -82,12 +83,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           onChanged: (value) {
                             email = value;
                           },
-                          validator: (value) {
-                            if (!EmailValidator.validate(value)) {
-                              return 'Email address is invalid';
-                            }
-                            return null;
-                          },
+                          validator: emailValidator,
                         ),
                         TextFormField(
                           decoration: InputDecoration(hintText: "Password"),
@@ -95,12 +91,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           onChanged: (value) {
                             password = value;
                           },
-                          validator: (value) {
-                            if (value.length < 8) {
-                              return 'Password length should be 8 characters or more';
-                            }
-                            return null;
-                          },
+                          validator: passwordValidator,
                         ),
                         TextFormField(
                           decoration:
