@@ -2,6 +2,7 @@ import 'package:TaskAssigner/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:TaskAssigner/mixins/validation_mixin.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login';
@@ -9,7 +10,7 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen> with ValidationMixin {
   String email;
   String password;
   final _auth = FirebaseAuth.instance;
@@ -43,23 +44,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextFormField(
                         decoration: InputDecoration(hintText: 'E-mail address'),
                         onChanged: (value) => email = value,
-                        validator: (value) {
-                          if (!EmailValidator.validate(value)) {
-                            return 'Invalid e-mail address';
-                          }
-                          return null;
-                        },
+                        validator: emailValidator,
                       ),
                       TextFormField(
                         decoration: InputDecoration(hintText: 'Password'),
                         obscureText: true,
                         onChanged: (value) => password = value,
-                        validator: (value) {
-                          if (value.length < 8) {
-                            return 'Password is too short';
-                          }
-                          return null;
-                        },
+                        validator: passwordValidator,
                       ),
                       RaisedButton(
                         onPressed: () async {
