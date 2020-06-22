@@ -9,4 +9,9 @@ void main() {
         validationMixin.emailValidator('w'), equals('Invalid e-mail address'));
     expect(validationMixin.emailValidator('bob@bob.com'), equals(null));
   });
+
+  test('password validator mixin test', () {
+    expect(validationMixin.passwordValidator('1'),
+        equals('Password is too short'));
+  });
 }
