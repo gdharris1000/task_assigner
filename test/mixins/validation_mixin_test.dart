@@ -13,5 +13,6 @@ void main() {
   test('password validator mixin test', () {
     expect(validationMixin.passwordValidator('1'),
         equals('Password is too short'));
+    expect(validationMixin.passwordValidator('12345678'), equals(null));
   });
 }
