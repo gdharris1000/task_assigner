@@ -5,6 +5,8 @@ final ValidationMixin validationMixin = ValidationMixin();
 
 void main() {
   test('email validator mixin test', () {
-    expect(validationMixin.emailValidator('w'), equals(null));
+    expect(
+        validationMixin.emailValidator('w'), equals('Invalid e-mail address'));
+    expect(validationMixin.emailValidator('bob@bob.com'), equals(null));
   });
 }
