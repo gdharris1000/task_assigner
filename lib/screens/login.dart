@@ -59,7 +59,6 @@ class _LoginScreenState extends State<LoginScreen> with ValidationMixin {
                                   await _auth.signInWithEmailAndPassword(
                                       email: email, password: password);
                               if (user != null) {
-//                        Navigator.pushNamed(context, TasksScreen.id);
                                 Navigator.pushNamed(context, HomeScreen.id);
                               }
                             } catch (e) {
